@@ -1,6 +1,6 @@
-package com.uniovi.sdi2122909spring.repositories;
+package com.uniovi.notaneitor.repositories;
 
-import com.uniovi.sdi2122909spring.entities.Mark;
+import com.uniovi.notaneitor.entities.Mark;
 import org.springframework.data.repository.CrudRepository;
 
 // Esta clase es un Bean al utilizar CrudRepository; se puede inyectar en cualquier componente

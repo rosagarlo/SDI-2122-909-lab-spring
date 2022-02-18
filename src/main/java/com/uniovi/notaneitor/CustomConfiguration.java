@@ -1,4 +1,4 @@
-package com.uniovi.sdi2122909spring;
+package com.uniovi.notaneitor;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

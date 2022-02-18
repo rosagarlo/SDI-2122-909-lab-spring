@@ -1,7 +1,7 @@
-package com.uniovi.sdi2122909spring.controllers;
+package com.uniovi.notaneitor.controllers;
 
-import com.uniovi.sdi2122909spring.entities.Professor;
-import com.uniovi.sdi2122909spring.services.ProfessorsService;
+import com.uniovi.notaneitor.entities.Professor;
+import com.uniovi.notaneitor.services.ProfessorsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

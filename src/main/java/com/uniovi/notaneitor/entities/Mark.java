@@ -1,4 +1,4 @@
-package com.uniovi.sdi2122909spring.entities;
+package com.uniovi.notaneitor.entities;
 
 import javax.persistence.*;
 

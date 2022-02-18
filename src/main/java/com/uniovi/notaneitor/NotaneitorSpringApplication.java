@@ -1,13 +1,13 @@
-package com.uniovi.sdi2122909spring;
+package com.uniovi.notaneitor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Sdi2122909SpringApplication {
+public class NotaneitorSpringApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Sdi2122909SpringApplication.class, args);
+        SpringApplication.run(NotaneitorSpringApplication.class, args);
     }
 
 }

@@ -1,7 +1,8 @@
-package com.uniovi.sdi2122909spring.repositories;
+package com.uniovi.notaneitor.repositories;
 
-import com.uniovi.sdi2122909spring.entities.*;
+import com.uniovi.notaneitor.entities.*;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UsersRepository extends CrudRepository<User, Long> {
+    User findByDni(String dni);
 }

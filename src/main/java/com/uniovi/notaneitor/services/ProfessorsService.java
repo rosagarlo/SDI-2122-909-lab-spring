@@ -1,14 +1,11 @@
-package com.uniovi.sdi2122909spring.services;
+package com.uniovi.notaneitor.services;
 
-import com.uniovi.sdi2122909spring.entities.Professor;
-import com.uniovi.sdi2122909spring.repositories.MarksRepository;
-import com.uniovi.sdi2122909spring.repositories.ProfessorRepository;
+import com.uniovi.notaneitor.entities.Professor;
+import com.uniovi.notaneitor.repositories.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 @Service

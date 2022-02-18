@@ -1,8 +1,8 @@
-package com.uniovi.sdi2122909spring.controllers;
+package com.uniovi.notaneitor.controllers;
 
-import com.uniovi.sdi2122909spring.entities.Mark;
-import com.uniovi.sdi2122909spring.services.MarksService;
-import com.uniovi.sdi2122909spring.services.UsersService;
+import com.uniovi.notaneitor.entities.Mark;
+import com.uniovi.notaneitor.services.MarksService;
+import com.uniovi.notaneitor.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
