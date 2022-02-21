@@ -1,6 +1,7 @@
 package com.uniovi.notaneitor.controllers;
 
 import com.uniovi.notaneitor.entities.Professor;
+import com.uniovi.notaneitor.entities.User;
 import com.uniovi.notaneitor.services.ProfessorsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,12 @@ public class ProfessorController {
     public String setProfessor(@ModelAttribute Professor professor) {
         professorsService.addProfessor(professor);
         return "Professor " + professor.getId() + " added";
+    }
+
+    @RequestMapping(value = "/professor/add", method = RequestMethod.POST)
+    public String setUser(@ModelAttribute Professor professor) {
+        professorsService.addProfessor(professor);
+        return "redirect:/professor/list";
     }
 
     @RequestMapping("/professor/details/{id}")
