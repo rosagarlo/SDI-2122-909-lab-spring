@@ -11,13 +11,17 @@ public class Professor {
     @GeneratedValue
     private Long id;
     private String dni;
+    private String name;
+    private String lastName;
     private String department;
 
     public Professor() {}
 
-    public Professor(Long id, String dni, String department) {
+    public Professor(Long id, String dni, String name, String lastName, String department) {
         this.id = id;
         this.dni = dni;
+        this.name = name;
+        this.lastName = lastName;
         this.department = department;
     }
 
@@ -43,6 +47,22 @@ public class Professor {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Override

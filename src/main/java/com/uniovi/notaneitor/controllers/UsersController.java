@@ -108,6 +108,6 @@ public class UsersController {
         String dni = auth.getName();
         User activeUser = usersService.getUserByDni(dni);
         model.addAttribute("markList", activeUser.getMarks());
-        return "home";
+        return "/";
     }
 }

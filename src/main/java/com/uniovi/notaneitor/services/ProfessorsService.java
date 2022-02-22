@@ -1,6 +1,7 @@
 package com.uniovi.notaneitor.services;
 
 import com.uniovi.notaneitor.entities.Professor;
+import com.uniovi.notaneitor.entities.User;
 import com.uniovi.notaneitor.repositories.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,11 @@ public class ProfessorsService {
         // Si es null se le asinga el último +1 de la lista
         professorsRepository.save(professor);
     }
+
+    public Professor getProfessorByDni(String dni) {
+        return professorsRepository.findByDni(dni);
+    }
+
 
     public void deleteProfessor(Long id) {
         professorsRepository.deleteById(id);
