@@ -26,9 +26,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         // 2 Configurar Autoridades / EJ,TODOS EL ROLE_STUDENT
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_STUDENT"));
+        grantedAuthorities.add(new SimpleGrantedAuthority(user.getRole()));
 
-        if (user == null) {
+        if (usersRepository.findByDni(dni) == null) {
             throw new UsernameNotFoundException(dni);
         }
         // 3 Construir y retornar el "Userdetails"

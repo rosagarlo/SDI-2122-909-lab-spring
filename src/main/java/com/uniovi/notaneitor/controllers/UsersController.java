@@ -2,6 +2,7 @@ package com.uniovi.notaneitor.controllers;
 
 import com.uniovi.notaneitor.entities.Mark;
 import com.uniovi.notaneitor.entities.User;
+import com.uniovi.notaneitor.services.RolesService;
 import com.uniovi.notaneitor.services.SecurityService;
 import com.uniovi.notaneitor.services.UsersService;
 import com.uniovi.notaneitor.validators.SignUpFormValidator;
@@ -16,6 +17,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UsersController {
+
+    @Autowired
+    private RolesService rolesService;
+
     @Autowired
     private SignUpFormValidator signUpFormValidator;
 
@@ -39,6 +44,7 @@ public class UsersController {
 
     @RequestMapping(value = "/user/add")
     public String getUser(Model model) {
+        model.addAttribute("rolesList", rolesService.getRoles());
         model.addAttribute("usersList", usersService.getUsers());
         return "user/add";
     }
@@ -83,9 +89,10 @@ public class UsersController {
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String signup(@Validated User user, BindingResult result) {
         signUpFormValidator.validate(user, result);
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             return "signup";
         }
+        user.setRole(rolesService.getRoles()[0]);
         usersService.addUser(user);
         securityService.autoLogin(user.getDni(), user.getPasswordConfirm());
         return "redirect:home";

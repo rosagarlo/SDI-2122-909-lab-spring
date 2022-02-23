@@ -14,6 +14,7 @@ public class User {
     private String dni;
     private String name;
     private String lastName;
+    private String role;
 
     private String password;
     @Transient //propiedad que no se almacena e la tabla.
@@ -87,6 +88,14 @@ public class User {
 
     public String getPasswordConfirm() {
         return passwordConfirm;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public void setPasswordConfirm(String passwordConfirm) {
