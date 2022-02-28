@@ -25,6 +25,13 @@ public class Professor {
         this.department = department;
     }
 
+    public Professor( String dni, String name, String lastName, String department) {
+        this.dni = dni;
+        this.name = name;
+        this.lastName = lastName;
+        this.department = department;
+    }
+
     public String getDni() {
         return dni;
     }

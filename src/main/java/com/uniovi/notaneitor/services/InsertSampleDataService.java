@@ -1,7 +1,9 @@
 package com.uniovi.notaneitor.services;
 
 import com.uniovi.notaneitor.entities.Mark;
+import com.uniovi.notaneitor.entities.Professor;
 import com.uniovi.notaneitor.entities.User;
+import org.apache.tomcat.util.net.AprEndpoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,9 @@ public class InsertSampleDataService {
 
     @Autowired
     private RolesService rolesService;
+
+    @Autowired
+    private ProfessorsService professorsService;
 
     @PostConstruct
     public void init() {
@@ -82,5 +87,8 @@ public class InsertSampleDataService {
         usersService.addUser(user4);
         usersService.addUser(user5);
         usersService.addUser(user6);
+
+        Professor p1 = new Professor( "4354353M", "Jose", "Garcia", "Física");
+        professorsService.addProfessor(p1);
     }
 }

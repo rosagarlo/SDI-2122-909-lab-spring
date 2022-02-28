@@ -4,6 +4,7 @@ import com.uniovi.notaneitor.entities.Professor;
 import com.uniovi.notaneitor.entities.User;
 import com.uniovi.notaneitor.services.ProfessorsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,25 +14,27 @@ public class ProfessorController {
     private ProfessorsService professorsService;
 
     @RequestMapping ("/professor/list")
-    public String getList() {
-        return professorsService.getProfessors().toString();
+    public String getList(Model model) {
+        model.addAttribute("professorsList", professorsService.getProfessors());
+        return "professor/list";
     }
 
     @RequestMapping("/professor/add")
-    public String setProfessor(@ModelAttribute Professor professor) {
-        professorsService.addProfessor(professor);
-        return "Professor " + professor.getId() + " added";
+    public String getProfessor(Model model) {
+        model.addAttribute("professorsList", professorsService.getProfessors());
+        return "professor/add";
     }
 
     @RequestMapping(value = "/professor/add", method = RequestMethod.POST)
-    public String setUser(@ModelAttribute Professor professor) {
+    public String setProfessor(@ModelAttribute Professor professor) {
         professorsService.addProfessor(professor);
         return "redirect:/professor/list";
     }
 
     @RequestMapping("/professor/details/{id}")
-    public String getDetail(@PathVariable Long id) {
-        return professorsService.getProfessor(id).toString();
+    public String getDetail(Model model, @PathVariable Long id) {
+        model.addAttribute("user", professorsService.getProfessor(id));
+        return "professor/details";
     }
 
     @RequestMapping("/professor/delete/{id}")

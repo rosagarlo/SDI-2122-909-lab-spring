@@ -1,0 +1,45 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/head"></head>
+<body>
+<nav th:replace="fragments/nav"></nav>
+<div class="container" id="main-container">
+    <h2>Profesores</h2>
+    <form class="form-inline" action="/professor/list">
+    </form>
+    <p>Los profesores que actualmente figuran en el sistema son los siguientes:</p>
+
+    <div class="table-responsive">
+        <table class="table table-hover" th:fragment="tableProfessors" id="tableProfessors">
+            <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">DNI</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Departamento</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="professor:${professorList}">
+                <td scope="row" th:text="${professor.id}">1</td>
+                <td scope="row" th:text="${professor.dni}">464574563N</td>
+                <td th:text="${professor.name}">Fernando</td>
+                <td th:text="${professor.lastName}">García</td>
+                <td th:text="${professor.department}">Informática</td>
+                <td><a th:href="${'/mark/details/' + professor.id}">detalles</a></td>
+                <td><a sec:authorize="hasRole('ROLE_ADMIN')" th:href="${'/professor/edit/' + professor.id}">modificar</a></td>
+                <td><a sec:authorize="hasRole('ADMIN')" th:href="${'/mark/delete/' + mark.id}">eliminar</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<footer th:replace="fragments/footer"></footer>
+</body>
+</html>
