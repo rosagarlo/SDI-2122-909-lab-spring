@@ -33,7 +33,7 @@ public class ProfessorController {
 
     @RequestMapping("/professor/details/{id}")
     public String getDetail(Model model, @PathVariable Long id) {
-        model.addAttribute("user", professorsService.getProfessor(id));
+        model.addAttribute("professor", professorsService.getProfessor(id));
         return "professor/details";
     }
 
