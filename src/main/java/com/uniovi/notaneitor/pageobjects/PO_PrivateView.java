@@ -26,4 +26,36 @@ public class PO_PrivateView extends PO_NavView {
         By boton = By.className("btn");
         driver.findElement(boton).click();
     }
+
+    static public void clickAndFill(WebDriver driver, String user) {
+        PO_HomeView.clickOption(driver, "login", "class", "btn btn-primary");
+        //Rellenamos el formulario
+        PO_LoginView.fillLoginForm(driver, user, "123456");
+    }
+
+    static public void checkLogout(WebDriver driver) {
+        String loginText = PO_HomeView.getP().getString("signup.message", PO_Properties.getSPANISH());
+        PO_PrivateView.clickOption(driver, "logout", "text", loginText);
+    }
+
+    public static void checkTextAndClickMark(WebDriver driver, String checkText, int i) {
+        List<WebElement> elements = PO_View.checkElementBy(driver, "free", checkText);
+        elements.get(i).click();
+    }
+
+    public static void marksMenu(WebDriver driver) {
+        checkTextAndClickMark(driver, "//li[contains(@id, 'marks-menu')]/a", 0);
+    }
+
+    public static void addMark(WebDriver driver) {
+        checkTextAndClickMark(driver, "//a[contains(@href, 'mark/add')]", 0);
+    }
+
+    public static void listMarks(WebDriver driver) {
+        checkTextAndClickMark(driver, "//a[contains(@href, 'mark/list')]", 0);
+    }
+
+    public static void pageLink(WebDriver driver) {
+        checkTextAndClickMark(driver, "//a[contains(@class, 'page-link')]", 3);
+    }
 }
